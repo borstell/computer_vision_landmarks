@@ -8,7 +8,6 @@ For example, the following code can be used to plot all landmarks with their cor
 
 ```r
 library(tidyverse)
-library(tidyverse)
 
 openface <- 
   read_csv("https://raw.githubusercontent.com/borstell/computer_vision/refs/heads/main/data/openface_landmarks.csv")
