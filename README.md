@@ -1,4 +1,6 @@
-# Computer Vision
+# Computer Vision landmarks
+
+The purpose of this repository is to store basic landmark coordinates for simple visualizations of landmarks in OpenFace and Mediapipe, e.g., when illustrating the output in a _Methodology_ section in a paper or when teaching or presenting at conferences. These are simple single frame/image coordinates, with round-ish numbers for simplified handling rather than necessitating running a model on _messy_ data resulting in tilted or asymmetric coordinates.
 
 ## OpenFace landmarks
 
