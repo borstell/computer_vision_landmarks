@@ -31,12 +31,14 @@ openface |>
 ```
 The code above will generate something like:
 
-![](openface_landmarks.png)
+![](imgs/openface_landmarks.png)
 
 
 ## Mediapipe landmarks
 
-Under `data/`, there is a `.csv` file that contains basic coordinates and indices of [Mediapipe landmarks]([https://openface-api.readthedocs.io/en/latest/openface.html](https://ai.google.dev/edge/mediapipe/solutions/vision/pose_landmarker)) that can be used to plot a schematic image of the output of Mediapipe pose estimation. 
+### Pose landmarks
+
+Under `data/`, there is a `.csv` file that contains basic coordinates and indices of [Mediapipe landmarks](https://ai.google.dev/edge/mediapipe/solutions/vision/pose_landmarker) that can be used to plot a schematic image of the output of Mediapipe pose estimation. 
 
 For example, the following code can be used to plot all landmarks with their corresponding indices and connected into groups (with some tinkering to join the correct shapes):
 
@@ -76,4 +78,62 @@ mp_landmarks |>
 
 The code above will generate something like:
 
-![](mediapipe_landmarks.png)
+![](imgs/mediapipe_landmarks.png)
+
+### Hand landmarks
+
+Under `data/`, there is a `.csv` file that contains basic coordinates and indices of [Mediapipe hand landmarks](https://ai.google.dev/edge/mediapipe/solutions/vision/hand_landmarker) that can be used to plot a schematic image of the output of Mediapipe hand estimation. 
+
+For example, the following code can be used to plot all landmarks with their corresponding indices and connected into groups (with some tinkering to join the correct shapes):
+
+```r
+library(tidyverse)
+
+mp_hand <- 
+  read_csv("https://raw.githubusercontent.com/borstell/computer_vision/refs/heads/main/data/mediapipe_hand_landmarks.csv")
+
+mp_hand |> 
+  ggplot() +
+  geom_point(aes(x, y), size = 3) +
+  geom_path(data = \(x) filter(x, str_starts(bodypart, "thumb|wrist")), aes(x, y)) +
+  geom_path(data = \(x) filter(x, str_starts(bodypart, "index|wrist")), aes(x, y)) +
+  geom_path(data = \(x) filter(x, str_starts(bodypart, "middle")), aes(x, y)) +
+  geom_path(data = \(x) filter(x, str_starts(bodypart, "ring")), aes(x, y)) +
+  geom_path(data = \(x) filter(x, str_starts(bodypart, "pinky|wrist")), aes(x, y)) +
+  geom_path(data = \(x) filter(x, landmark %in% c(5, 9, 13, 17)), aes(x, y)) +
+  geom_text(aes(x, y, label = landmark), color = "white", size = 1.8) +
+  scale_y_reverse() +
+  coord_equal() +
+  theme_void(paper = "white")
+```
+
+
+The code above will generate something like:
+
+![](imgs/mediapipe_hand_landmarks.png)
+
+### Face landmarks
+
+Under `data/`, there is a `.csv` file that contains basic coordinates and indices of [Mediapipe face landmarks](https://ai.google.dev/edge/mediapipe/solutions/vision/face_landmarker) that can be used to plot a schematic image of the output of Mediapipe face estimation. 
+
+For example, the following code can be used to plot all landmarks with their corresponding indices and connected into groups (with some tinkering to join the correct shapes):
+
+
+```r
+library(tidyverse)
+
+mp_face <- 
+  read_csv("https://raw.githubusercontent.com/borstell/computer_vision/refs/heads/main/data/mediapipe_face_landmarks.csv")
+
+mp_face |> 
+  ggplot() +
+  geom_point(aes(x, y), size = .2) +
+  scale_y_reverse() +
+  coord_equal() +
+  theme_void(paper = "white")
+```
+
+
+The code above will generate something like:
+
+![](imgs/mediapipe_face_landmarks.png)
