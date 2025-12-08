@@ -98,11 +98,11 @@ mp_hand |>
   ggplot() +
   geom_point(aes(x, y), size = 5) +
   geom_path(data = \(x) filter(x, str_starts(bodypart, "thumb|wrist")), aes(x, y)) +
-  geom_path(data = \(x) filter(x, str_starts(bodypart, "index|wrist")), aes(x, y)) +
+  geom_path(data = \(x) filter(x, str_starts(bodypart, "index")), aes(x, y)) +
   geom_path(data = \(x) filter(x, str_starts(bodypart, "middle")), aes(x, y)) +
   geom_path(data = \(x) filter(x, str_starts(bodypart, "ring")), aes(x, y)) +
   geom_path(data = \(x) filter(x, str_starts(bodypart, "pinky|wrist")), aes(x, y)) +
-  geom_path(data = \(x) filter(x, landmark %in% c(5, 9, 13, 17)), aes(x, y)) +
+  geom_path(data = \(x) filter(x, landmark %in% c(2, 5, 9, 13, 17)), aes(x, y)) +
   geom_text(aes(x, y, label = landmark), color = "white", size = 3) +
   scale_y_reverse() +
   coord_equal() +
