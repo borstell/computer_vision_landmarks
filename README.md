@@ -140,6 +140,6 @@ The code above will generate something like:
 ![](imgs/mediapipe_face_landmarks.png)
 
 
-## License
+## About
 
-These coordinates are either manually annotated by myself or generated from single-image outputs from the models themselves in order to create easy-to-read and easy-to-plot landmark coordinates for some common models used for computer vision analysis. You may freely use the coordinatess provided here for your own work. Cite the models (e.g., Mediapipe and OpenFace) used in your work according to their terms of use.
+These coordinates are either manually annotated by myself or generated from single-image outputs from the models themselves in order to create easy-to-read and easy-to-plot landmark coordinates for some common models used for computer vision analysis. You may freely use the coordinatess provided here for your own work (see License). Cite the models (e.g., Mediapipe and OpenFace) used in your work according to their terms of use.
