@@ -1,6 +1,10 @@
 # Computer Vision landmarks
 
-The purpose of this repository is to store basic landmark coordinates for simple visualizations of landmarks in OpenFace and Mediapipe, e.g., when illustrating the output in a _Methodology_ section in a paper or when teaching or presenting at conferences. These are simple single frame/image coordinates, with round-ish numbers for simplified handling rather than necessitating running a model on _messy_ data resulting in tilted or asymmetric coordinates.
+## About
+
+The purpose of this repository is to store basic landmark coordinates for simple visualizations of landmarks in OpenFace and Mediapipe, e.g., when illustrating the output in a _Methodology_ section in a paper or when teaching or presenting at conferences. These are simple single frame/image coordinates from a front-facing angle, with round-ish values normalized within the `[0, 1]` range for simplified handling rather than necessitating running a model on _messy_ data resulting in tilted or asymmetric coordinates.
+
+These coordinates are either manually annotated by myself or generated from single-image outputs from the models themselves in order to create easy-to-read and easy-to-plot landmark coordinates for some common models used for computer vision analysis. You may freely use the coordinatess provided here for your own work (see License). Cite the models (e.g., Mediapipe and OpenFace) used in your work according to their terms of use.
 
 ## OpenFace landmarks
 
@@ -138,8 +142,3 @@ mp_face |>
 The code above will generate something like:
 
 ![](imgs/mediapipe_face_landmarks.png)
-
-
-## About
-
-These coordinates are either manually annotated by myself or generated from single-image outputs from the models themselves in order to create easy-to-read and easy-to-plot landmark coordinates for some common models used for computer vision analysis. You may freely use the coordinatess provided here for your own work (see License). Cite the models (e.g., Mediapipe and OpenFace) used in your work according to their terms of use.
